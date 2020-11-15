@@ -1,0 +1,10 @@
+1605447479871	geckodriver	INFO	Listening on 127.0.0.1:43909
+1605447479880	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileooLYj2"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1605447484550	Marionette	INFO	Listening on port 42619
+1605447484679	Marionette	WARN	TLS certificate errors will be ignored for this session
+Marionette threw an error: TypeError: this.curBrowser.contentBrowser is null
+GeckoDriver.prototype.navigateTo@chrome://marionette/content/driver.js:1210:3
+
+1605447506384	Marionette	ERROR	[33] No reply from Marionette:Register
+1605447508709	Marionette	INFO	Stopped listening on port 42619
