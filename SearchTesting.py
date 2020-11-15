@@ -3,14 +3,13 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-firefox = webdriver.Firefox(executable_path="./webdriver/geckodriver")
 WEBSITE_URL = "https://web.cloudmore.com/"
 
 class SearchTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = firefox
+        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
