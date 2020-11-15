@@ -1,13 +1,10 @@
 import unittest
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-
 firefox = webdriver.Firefox(executable_path="./webdriver/geckodriver")
 WEBSITE_URL = "https://web.cloudmore.com/"
-
-
 
 class ElementsTesting(unittest.TestCase):
     @classmethod
@@ -63,7 +60,7 @@ class ElementsTesting(unittest.TestCase):
     def tearDownClass(inst):
         # close the browser window
         inst.driver.quit()
-    
+
 
 if __name__ == '__main__':
     unittest.main()
