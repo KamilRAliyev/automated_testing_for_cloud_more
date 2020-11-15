@@ -30,31 +30,12 @@ class ElementsTesting(unittest.TestCase):
             else:
                 flag = False
         self.assertTrue(flag, msg=f"{text} - menu item, is not here")
-
-    def test_navElement_platform(self):
-        text = "platform"
-        self.menu_item_element_tester(text, 1)
-
-    def test_navElement_solutions(self):
-        text = "solutions"
-        self.menu_item_element_tester(text, 1)
-
-        
-    def test_navElement_about_us(self):
-        text = "about us"
-        self.menu_item_element_tester(text, 1)
     
-    def test_navElement_contact_us(self):
-        text = "contact us"
-        self.menu_item_element_tester(text, 1)
-    
-    def test_navElement_blog(self):
-        text = "blog"
-        self.menu_item_element_tester(text, 1)
-    
-    def test_navElement_case_studies(self):
-        text = "case studies"
-        self.menu_item_element_tester(text, 1)
+    def test_navElements(self):
+        names = ["platform", "solutions", "about us", "contact us", "blog", "case studies"]
+        for text in names:
+            with self.subTest():
+                self.menu_item_element_tester(text, 1)
 
     @classmethod
     def tearDownClass(inst):
