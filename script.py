@@ -1,4 +1,69 @@
+import unittest
+from bs4 import BeautifulSoup
 from selenium import webdriver
-browser = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+from selenium.webdriver.common.keys import Keys
 
-browser.get('http://seleniumhq.org/')
+
+firefox = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+WEBSITE_URL = "https://web.cloudmore.com/"
+
+
+
+class ElementsTesting(unittest.TestCase):
+    @classmethod
+    def setUpClass(inst):
+        # create a new Firefox session
+        inst.driver = firefox
+        inst.driver.implicitly_wait(30)
+        inst.driver.minimize_window()
+        # navigate to the application home page
+        inst.driver.get(WEBSITE_URL)
+        inst.driver.title
+
+    def test_logo_image(self):
+        logo_bool = self.driver.find_element_by_xpath('//*[@id="hs-link-module_14891423382401005"]/img').is_displayed()
+        self.assertTrue(logo_bool, msg="Logo is not displayed.")
+
+    def menu_item_element_tester(self, text, depth):
+        menu_items = self.driver.find_elements_by_css_selector(f"li.hs-menu-item.hs-menu-depth-{depth} > a")
+        for element in menu_items:
+            if element.text.lower() == text:
+                flag = element.is_displayed()
+                break
+            else:
+                flag = False
+        self.assertTrue(flag, msg=f"{text} - menu item, is not here")
+
+    def test_navElement_platform(self):
+        text = "platform"
+        self.menu_item_element_tester(text, 1)
+
+    def test_navElement_solutions(self):
+        text = "solutions"
+        self.menu_item_element_tester(text, 1)
+
+        
+    def test_navElement_about_us(self):
+        text = "about us"
+        self.menu_item_element_tester(text, 1)
+    
+    def test_navElement_contact_us(self):
+        text = "contact us"
+        self.menu_item_element_tester(text, 1)
+    
+    def test_navElement_blog(self):
+        text = "blog"
+        self.menu_item_element_tester(text, 1)
+    
+    def test_navElement_case_studies(self):
+        text = "case studies"
+        self.menu_item_element_tester(text, 1)
+
+    @classmethod
+    def tearDownClass(inst):
+        # close the browser window
+        inst.driver.quit()
+    
+
+if __name__ == '__main__':
+    unittest.main()
