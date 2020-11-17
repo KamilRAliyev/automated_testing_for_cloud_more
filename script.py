@@ -1,3 +1,6 @@
+__author__ = "Ismayil Aliyev"
+
+from pyunitreport import HTMLTestRunner
 import unittest
 import os
 import utils
@@ -339,4 +342,4 @@ class ElementsTesting(unittest.TestCase):
         inst.driver.quit()
 
 if __name__ == '__main__':
-    unittest.main()
+       unittest.main()
