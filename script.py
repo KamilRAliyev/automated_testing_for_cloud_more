@@ -8,13 +8,17 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 WEBSITE_URL = "https://web.cloudmore.com/"
+# PS. on ubuntu or mac it will work, 
+# but if you are using Windows download and add geckodriver from selenium website and add local link here.
+# For Example: "C:\\Program Files\\geckodriver.exe"
+WEBDRIVER_PATH = "./webdriver/geckodriver" 
 MENU_LINKS = utils.get_menu_links(WEBSITE_URL)
 
 class DesktopSizeScreenshotTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.maximize_window() # for maximizing the browser size
         # navigate to the application home page
@@ -61,7 +65,7 @@ class MobileSizeScreenshotTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.set_window_size(375,812) # Setting Iphone X size to the browser, in order to get mobile view.
         # navigate to the application home page
@@ -105,7 +109,7 @@ class SearchNoResultTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -138,7 +142,7 @@ class SearchResultsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -170,7 +174,7 @@ class PlatformTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -194,7 +198,7 @@ class SolutionsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -218,7 +222,7 @@ class AboutUsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -242,7 +246,7 @@ class BlogTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -266,7 +270,7 @@ class CaseStudiesTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -290,7 +294,7 @@ class ContactUsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -318,7 +322,7 @@ class ElementsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
