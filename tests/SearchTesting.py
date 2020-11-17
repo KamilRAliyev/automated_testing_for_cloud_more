@@ -1,15 +1,43 @@
-import unittest
-# from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from settings import *
 
-WEBSITE_URL = "https://web.cloudmore.com/"
-
-class SearchTesting(unittest.TestCase):
+class SearchNoResultTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
+        inst.driver.implicitly_wait(30)
+        inst.driver.minimize_window()
+        # navigate to the application home page
+        inst.driver.get(WEBSITE_URL)
+        inst.driver.title
+
+    
+    @unittest.expectedFailure
+    def test_search_Ismayil(self):
+        search_key = "Ismayil"
+        self.driver.find_element_by_css_selector('span.search > i').click()
+        search_box = self.driver.find_element_by_css_selector("input[type='search'].hs-input")
+        search_box.send_keys(search_key)
+        search_button = self.driver.find_element_by_css_selector("button[type='submit'].hs-button")
+        search_button.click()
+        results = self.driver.find_elements_by_css_selector('ul.hs-search-results__listing > li') # Get the list of results
+        if len(results) > 0: # If the length og results array is 0, then there is no results for the search query.
+            flag = True
+        else:
+            flag = False
+        self.assertTrue(flag, msg=f"No Results for {search_key}") # if flag is False - no results, testcase will Fail.
+    
+
+    @classmethod
+    def tearDownClass(inst):
+        # close the browser window
+        inst.driver.quit()
+
+class SearchResultsTesting(unittest.TestCase):
+    @classmethod
+    def setUpClass(inst):
+        # create a new Firefox session
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -31,26 +59,11 @@ class SearchTesting(unittest.TestCase):
             flag = False
         self.assertTrue(flag, msg=f"No Results for {search_key}")
     
-    @unittest.expectedFailure
-    def test_search_Ismayil(self):
-        search_key = "Ismayil"
-        self.driver.find_element_by_css_selector('span.search > i').click()
-        search_box = self.driver.find_element_by_css_selector("input[type='search'].hs-input")
-        search_box.send_keys(search_key)
-        search_button = self.driver.find_element_by_css_selector("button[type='submit'].hs-button")
-        search_button.click()
-        results = self.driver.find_elements_by_css_selector('ul.hs-search-results__listing > li')
-        if len(results) > 0:
-            flag = True
-        else:
-            flag = False
-        self.assertTrue(flag, msg=f"No Results for {search_key}")
     
-
     @classmethod
     def tearDownClass(inst):
         # close the browser window
         inst.driver.quit()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -1,16 +1,11 @@
-import unittest
-import utils
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from settings import *
 
-WEBSITE_URL = "https://web.cloudmore.com/"
-MENU_LINKS = utils.get_menu_links(WEBSITE_URL)
 
 class PlatformTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -18,7 +13,7 @@ class PlatformTesting(unittest.TestCase):
         inst.driver.title
 
     def test_logo(self):
-        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed()
+        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed() # Checks if img with alt that contains Logo (is only in navbar) is displayed on the browser or not.
         self.assertTrue(logo_bool, msg=f"Logo is not displayed at page.")
     
     def test_footer_contact_form(self):
@@ -34,7 +29,7 @@ class SolutionsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -42,7 +37,7 @@ class SolutionsTesting(unittest.TestCase):
         inst.driver.title
 
     def test_logo(self):
-        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed()
+        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed() # Checks if img with alt that contains Logo (is only in navbar) is displayed on the browser or not.
         self.assertTrue(logo_bool, msg=f"Logo is not displayed at page.")
     
     def test_footer_contact_form(self):
@@ -58,7 +53,7 @@ class AboutUsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -66,7 +61,7 @@ class AboutUsTesting(unittest.TestCase):
         inst.driver.title
 
     def test_logo(self):
-        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed()
+        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed() # Checks if img with alt that contains Logo (is only in navbar) is displayed on the browser or not.
         self.assertTrue(logo_bool, msg=f"Logo is not displayed at page.")
     
     def test_footer_contact_form(self):
@@ -82,7 +77,7 @@ class BlogTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -90,7 +85,7 @@ class BlogTesting(unittest.TestCase):
         inst.driver.title
 
     def test_logo(self):
-        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed()
+        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed() # Checks if img with alt that contains Logo (is only in navbar) is displayed on the browser or not.
         self.assertTrue(logo_bool, msg=f"Logo is not displayed at page.")
     
     def test_footer_contact_form(self):
@@ -106,7 +101,7 @@ class CaseStudiesTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -114,7 +109,7 @@ class CaseStudiesTesting(unittest.TestCase):
         inst.driver.title
 
     def test_logo(self):
-        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed()
+        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed() # Checks if img with alt that contains Logo (is only in navbar) is displayed on the browser or not.
         self.assertTrue(logo_bool, msg=f"Logo is not displayed at page.")
     
     def test_footer_contact_form(self):
@@ -130,7 +125,7 @@ class ContactUsTesting(unittest.TestCase):
     @classmethod
     def setUpClass(inst):
         # create a new Firefox session
-        inst.driver = webdriver.Firefox(executable_path="./webdriver/geckodriver")
+        inst.driver = webdriver.Firefox(executable_path=WEBDRIVER_PATH)
         inst.driver.implicitly_wait(30)
         inst.driver.minimize_window()
         # navigate to the application home page
@@ -138,7 +133,7 @@ class ContactUsTesting(unittest.TestCase):
         inst.driver.title
 
     def test_logo(self):
-        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed()
+        logo_bool = self.driver.find_element_by_css_selector('img[alt*="Logo"]').is_displayed() # Checks if img with alt that contains Logo (is only in navbar) is displayed on the browser or not.
         self.assertTrue(logo_bool, msg=f"Logo is not displayed at page.")
     
     def test_footer_contact_form(self):
@@ -155,5 +150,5 @@ class ContactUsTesting(unittest.TestCase):
         inst.driver.quit()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
