@@ -37,8 +37,8 @@ class DesktopSizeScreenshotTesting(unittest.TestCase):
                 self.driver.implicitly_wait(30)
             except:
                 break
-        self.driver.get_screenshot_as_file("../screenshot_desktop.png")
-        self.assertTrue(os.path.isfile('../screenshot_desktop.png'), msg="Desktop size image is not found.") # Checking if screenshotfile is not there testcase will be failed
+        self.driver.get_screenshot_as_file("./screenshots/screenshot_desktop.png")
+        self.assertTrue(os.path.isfile('./screenshots/screenshot_desktop.png'), msg="Desktop size image is not found.") # Checking if screenshotfile is not there testcase will be failed
     
     
 
@@ -81,8 +81,8 @@ class MobileSizeScreenshotTesting(unittest.TestCase):
                 self.driver.implicitly_wait(30)
             except:
                 break
-        self.driver.get_screenshot_as_file("../screenshot_mobile.png")
-        self.assertTrue(os.path.isfile('../screenshot_mobile.png'), msg="Desktop size image is not found.")
+        self.driver.get_screenshot_as_file("./screenshots/screenshot_mobile.png")
+        self.assertTrue(os.path.isfile('./screenshots/screenshot_mobile.png'), msg="Desktop size image is not found.")
     
     
 
