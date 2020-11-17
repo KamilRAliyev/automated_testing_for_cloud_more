@@ -1,12 +1,14 @@
 # Testing website for the company
 
-### PS. I am using Ubuntu
+### PS. I am using Ubuntu.
+### You need to have Mozilla Firefox web browser.
+
 
 **Step 1 (Optional) :** Create virtual environment
 
 ``python -m venv venv``
 
-``sourve venv/bin/activate``
+``source venv/bin/activate``
 
 **Step 2:** Install the requirenments:
 
