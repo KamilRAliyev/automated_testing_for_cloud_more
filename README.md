@@ -54,8 +54,8 @@ or
 
 You can run each test seperately:
 
-``python ./tests/TestName.py``
+``python ./tests/TestName.py -v``
 
 or
 
-``python3 ./tests/TestName.py``
+``python3 ./tests/TestName.py -v``
