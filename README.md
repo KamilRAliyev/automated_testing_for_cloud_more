@@ -9,10 +9,9 @@
 **Step 1 (Optional) :** Create virtual environment
 
 ``python -m venv venv`` 
-
 or 
-
 ``python3 -m venv venv``
+
 
 
 ``source venv/bin/activate`` - for Linux and Mac
@@ -22,9 +21,7 @@ or
 **Step 2:** Install the requirenments:
 
 ``pip install -r requirenments`` 
-
 or 
-
 ``pip3 install -r requirenments``
 
 **Step 3:** Run the automated testing script:
