@@ -37,7 +37,7 @@ or
 ## Information about the package and files.
 1. ``tests/`` - in the folder where seperate tests can be found
 2. ``tests/settings.py`` - file where different kind of configurations.
-3. ``tests/utils.py`` - in the file there is BeatifulSoup script which gets links of the page
+3. ``tests/utils.py`` - in the file there is BeautifulSoup script which gets links of the page
 4. ``webdriver/`` - in the folder firefox drivers can be found
     
     1) ``./webdriver/geckodriver`` - driver for Linux
